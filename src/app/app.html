@@ -1,0 +1,112 @@
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Gamondeth Phrombutr home" (click)="closeMenu()">
+    <span class="brand-mark">GP</span>
+    <span><strong>Gamondeth Phrombutr</strong><small>Public showcase of work</small></span>
+  </a>
+  <button class="menu-button" type="button" aria-label="Toggle navigation" [attr.aria-expanded]="menuOpen()" (click)="toggleMenu()"><span></span><span></span><span></span></button>
+  <nav [class.open]="menuOpen()" aria-label="Primary navigation">
+    <a href="#about" (click)="closeMenu()">About</a>
+    <a href="#work" (click)="closeMenu()">Selected work</a>
+    <a href="#contact" (click)="closeMenu()">Contact</a>
+    <a class="nav-download" href="documents/Gamondeth_Phrombutr_Public_Showcase_of_Work.pdf" download>Download PDF</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="hero-grid container">
+      <div class="hero-copy">
+        <p class="eyebrow">Backend engineering · System analysis · Enterprise integration</p>
+        <h1>I turn complex enterprise processes into <span>supportable systems.</span></h1>
+        <p class="hero-lead">Selected systems and capabilities I helped analyze, design, and deliver—presented for recruiters, hiring managers, and engineering leaders.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#work">Explore selected work</a>
+          <a class="button secondary" href="documents/Gamondeth_Phrombutr_Public_Showcase_of_Work.pdf" download>Download portfolio</a>
+        </div>
+        <dl class="hero-stats" aria-label="Portfolio summary">
+          <div><dt>23</dt><dd>Projects represented</dd></div>
+          <div><dt>9</dt><dd>Work showcases</dd></div>
+          <div><dt>10+</dt><dd>Years in delivery</dd></div>
+        </dl>
+      </div>
+      <div class="hero-portrait" aria-label="Portrait of Gamondeth Phrombutr">
+        <div class="portrait-frame"><img src="assets/profile/gamondeth-profile.png" alt="Gamondeth Phrombutr" width="360" height="360"></div>
+        <div class="role-card"><strong>70% Backend</strong><span>30% supporting UI</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro-section section" id="about">
+    <div class="container two-column">
+      <div class="section-heading"><p class="eyebrow">What I bring</p><h2>Delivery across the whole technical conversation</h2></div>
+      <div class="intro-copy">
+        <p class="lead">I work where business requirements, backend services, and enterprise platforms meet. My strongest contribution is turning an unclear process into a system flow, implementation plan, and supportable production solution.</p>
+        <div class="delivery-range"><span>Requirements and flows</span><i></i><span>Architecture decisions</span><i></i><span>Implementation and review</span><i></i><span>Release and support</span></div>
+      </div>
+    </div>
+    <div class="container capability-grid">
+      @for (capability of capabilities; track capability.title) {
+        <article class="capability-card"><span class="card-dot"></span><h3>{{ capability.title }}</h3><p>{{ capability.text }}</p></article>
+      }
+    </div>
+  </section>
+
+  <section class="work-section section" id="work">
+    <div class="container work-intro">
+      <div class="section-heading"><p class="eyebrow">Selected work</p><h2>Nine capability-focused case studies</h2></div>
+      <p>Related projects are grouped by the business capability they delivered. Each case study explains the need, my contribution, and the practical outcome.</p>
+    </div>
+    <div class="container showcase-list">
+      @for (showcase of showcases; track showcase.id; let odd = $odd) {
+        <article class="showcase" [id]="showcase.id">
+          <div class="showcase-top" [class.reverse]="odd">
+            <div class="showcase-copy">
+              <div class="showcase-number">{{ showcase.number }}</div>
+              <p class="eyebrow">{{ showcase.eyebrow }}</p>
+              <h3>{{ showcase.title }}</h3>
+              <p class="showcase-summary">{{ showcase.summary }}</p>
+              <dl class="project-meta"><div><dt>My role</dt><dd>{{ showcase.role }}</dd></div><div><dt>Delivery scope</dt><dd>{{ showcase.scope }}</dd></div></dl>
+              <div class="tag-list" aria-label="Technologies">@for (technology of showcase.technologies; track technology) { <span>{{ technology }}</span> }</div>
+            </div>
+            <button class="architecture" type="button" (click)="openImage(showcase.architecture, showcase.title + ' architecture diagram')" aria-label="Enlarge architecture diagram">
+              <img [src]="showcase.architecture" [alt]="showcase.title + ' high-level architecture diagram'" loading="lazy">
+              <span>View architecture diagram <b aria-hidden="true">↗</b></span>
+            </button>
+          </div>
+          <p class="why"><strong>Why it mattered</strong>{{ showcase.why }}</p>
+          <div class="outcome-grid">
+            <div><h4>What I delivered</h4><ul>@for (item of showcase.delivered; track item) { <li>{{ item }}</li> }</ul></div>
+            <div><h4>How it helped</h4><ul>@for (item of showcase.impact; track item) { <li>{{ item }}</li> }</ul></div>
+          </div>
+          @if (showcase.screens?.length) {
+            <div class="screen-gallery" [class.single]="showcase.screens?.length === 1">
+              @for (screen of showcase.screens; track screen.src) { <button type="button" (click)="openImage(screen.src, screen.alt)" aria-label="Enlarge selected work screen"><img [src]="screen.src" [alt]="screen.alt" loading="lazy"></button> }
+            </div>
+          }
+          <div class="showcase-footer"><p>{{ showcase.projects }}</p><p><strong>Modern translation</strong>{{ showcase.translation }}</p></div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="positioning section">
+    <div class="container positioning-grid"><p class="eyebrow">Public portfolio</p><h2>Evidence of capability, without exposing confidential implementation details.</h2><p>This showcase focuses on delivered work and outcomes. Employer, client, and internal system names are generalized. Detailed system flows, implementation decisions, and UML remain in a separate technical interview portfolio.</p></div>
+  </section>
+
+  <section class="contact section" id="contact">
+    <div class="container contact-card">
+      <div><p class="eyebrow">Let’s connect</p><h2>Looking for backend, system analysis, or enterprise integration experience?</h2></div>
+      <div class="contact-actions"><a class="button primary" href="mailto:nutforwork@gmail.com">nutforwork&#64;gmail.com</a><span>Based in Thailand</span></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="container"><span>© {{ year }} Gamondeth Phrombutr</span><a href="#top">Back to top ↑</a></div></footer>
+
+@if (selectedImage(); as image) {
+  <div class="image-modal" role="dialog" aria-modal="true" [attr.aria-label]="image.alt" (click)="closeImage()">
+    <button type="button" aria-label="Close image" (click)="closeImage()">×</button>
+    <img [src]="image.src" [alt]="image.alt" (click)="$event.stopPropagation()">
+  </div>
+}
