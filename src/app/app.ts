@@ -9,9 +9,22 @@ interface Showcase {
   summary: string;
   role: string;
   scope: string;
-  technologies: string[];
+  technologies: string[
+  'Java',
+  'Spring Boot',
+  'Google Cloud Platform (GCP)',
+  'Google Kubernetes Engine (GKE)',
+  'Cloud Logging',
+  'Logs Explorer',
+  'Kubernetes',
+  'Docker'
+  ];
   why: string;
-  delivered: string[];
+  delivered: string[
+    'Supported containerized Spring Boot services deployed on Google Kubernetes Engine (GKE).',
+    'Investigated application and pod logs using Google Cloud Logging and Logs Explorer.',
+    'Analyzed runtime issues across Kubernetes workloads and backend services.'
+  ];
   impact: string[];
   projects: string;
   translation: string;
