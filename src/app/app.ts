@@ -10,20 +10,9 @@ interface Showcase {
   role: string;
   scope: string;
   technologies: string[
-  'Java',
-  'Spring Boot',
-  'Google Cloud Platform (GCP)',
-  'Google Kubernetes Engine (GKE)',
-  'Cloud Logging',
-  'Logs Explorer',
-  'Kubernetes',
-  'Docker'
   ];
   why: string;
   delivered: string[
-    'Supported containerized Spring Boot services deployed on Google Kubernetes Engine (GKE).',
-    'Investigated application and pod logs using Google Cloud Logging and Logs Explorer.',
-    'Analyzed runtime issues across Kubernetes workloads and backend services.'
   ];
   impact: string[];
   projects: string;
@@ -50,7 +39,8 @@ export class App {
     { title: 'System Analysis', text: 'Requirements, process flows, service boundaries, error behavior, and technical decisions.' },
     { title: 'Security and Governance', text: 'Trusted identity, authorization, permissions, encryption, audit, and controlled data handling.' },
     { title: 'Operations', text: 'Job control, metrics, reporting, troubleshooting, runbooks, and production readiness.' },
-    { title: 'Technical Leadership', text: 'Design discussions, code review, task decomposition, and cross-team coordination.' }
+    { title: 'Technical Leadership', text: 'Design discussions, code review, task decomposition, and cross-team coordination.' },
+    { title: 'Cloud and Platform Operations', text: 'Supported containerized backend services on Google Cloud Platform using Google Kubernetes Engine (GKE), Kubernetes, Docker, and Cloud Logging (Logs Explorer) for deployment support, log analysis, and production troubleshooting.'}
   ];
 
   protected readonly showcases: Showcase[] = [
@@ -128,9 +118,29 @@ export class App {
       id: 'onboarding', number: '07', eyebrow: 'Financial services', title: 'Digital Onboarding and Customer Consent',
       summary: 'Designed and delivered backend journeys that coordinate onboarding, trusted identity, consent content, and dependent enterprise services.',
       role: 'Senior Analyst / Backend Engineer / Technical Lead', scope: 'System analysis, service orchestration, and delivery leadership',
-      technologies: ['Java', 'Spring Boot', 'REST', 'JWT', 'Redis', 'Kafka', 'WebClient'],
+      technologies: [
+        'Java',
+        'Spring Boot',
+        'REST',
+        'JWT',
+        'Redis',
+        'Kafka',
+        'WebClient',
+        'Google Cloud Platform (GCP)',
+        'Google Kubernetes Engine (GKE)',
+        'Cloud Logging (Logs Explorer)',
+        'Kubernetes',
+        'Docker'
+      ],
       why: 'Provide secure, traceable onboarding operations across channel APIs and multiple backend systems while keeping the channel contract consistent.',
-      delivered: ['Translated business requirements into service flows, integration boundaries, and implementation plans.', 'Implemented registration, update, cancellation, and confirmation orchestration across dependent services.', 'Built secure consent inquiry with token context, external-content adapters, and Redis cache-aside behavior.', 'Led design discussions, code review, troubleshooting, release preparation, and cross-team coordination.'],
+      delivered: [
+        'Translated business requirements into service flows, integration boundaries, and implementation plans.',
+        'Implemented registration, update, cancellation, and confirmation orchestration across dependent services.',
+        'Built secure consent inquiry with token context, external-content adapters, and Redis cache-aside behavior.',
+        'Supported containerized Spring Boot services running on Google Kubernetes Engine (GKE).',
+        'Used Cloud Logging and Logs Explorer to investigate application logs, pod behavior, and integration failures.',
+        'Led design discussions, code review, troubleshooting, release preparation, and cross-team coordination.'
+      ],
       impact: ['Turned cross-system onboarding requirements into maintainable backend responsibilities and predictable API outcomes.', 'Reduced repeated external consent calls while keeping a stable client-facing contract.', 'Improved traceability and production readiness through audit events, error mapping, and delivery controls.'],
       projects: '4 projects represented: Digital Onboarding Platform, Benefits Onboarding Service, Customer Consent Service, and Onboarding Confirmation.', translation: 'Secure microservice orchestration, API contracts, cache-aside integration, events, and trusted identity context.', architecture: 'assets/showcases/onboarding-architecture.png'
     },
@@ -138,9 +148,26 @@ export class App {
       id: 'reconciliation', number: '08', eyebrow: 'Financial operations', title: 'Reconciliation and Settlement Processing',
       summary: 'Built controlled batch pipelines for secure file preparation, high-volume processing, mismatch classification, and operational reporting.',
       role: 'Backend / Batch Engineer', scope: 'Batch APIs, secure files, data comparison, and persistence',
-      technologies: ['Java', 'Spring Boot', 'Async', 'SFTP', 'MongoDB', 'SQL', 'Redis', 'Kafka'],
+      technologies: ['Java',
+        'Spring Boot',
+        'Async',
+        'SFTP',
+        'MongoDB',
+        'SQL',
+        'Redis',
+        'Kafka',
+        'Google Cloud Platform (GCP)',
+        'Google Kubernetes Engine (GKE)',
+        'Cloud Logging (Logs Explorer)',
+        'Kubernetes',
+        'Docker'],
       why: 'Turn dated operational files into validated, reportable outcomes while controlling memory, concurrency, and rerun behavior.',
-      delivered: ['Implemented asynchronous start and status control with explicit processing outcomes.', 'Built secure file download, control-file validation, and configurable preprocessing.', 'Created reconciliation logic for missing, different, and extra transactions with repair events.', 'Implemented concurrent settlement mapping and bounded chunk persistence for high-volume files.'],
+      delivered: ['Implemented asynchronous start and status control with explicit processing outcomes.',
+  'Built secure file download, control-file validation, and configurable preprocessing.',
+  'Created reconciliation logic for missing, different, and extra transactions with repair events.',
+  'Implemented concurrent settlement mapping and bounded chunk persistence for high-volume files.',
+  'Supported containerized Spring Boot batch services running on Google Kubernetes Engine (GKE).',
+  'Used Cloud Logging and Logs Explorer to investigate application logs, pod behavior, memory usage, and processing failures.'],
       impact: ['Separated operational control from long-running work so batch state remained visible.', 'Reduced memory pressure by streaming input and persisting bounded chunks.', 'Made mismatches and failures actionable through classification, events, and report data.'],
       projects: '2 projects represented: Transaction Reconciliation Batch and Settlement File Processing Batch.', translation: 'Observable data-pipeline and batch-processing patterns using streaming input, bounded concurrency, and chunked persistence.', architecture: 'assets/showcases/reconciliation-architecture.png'
     },
